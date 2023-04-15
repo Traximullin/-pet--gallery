@@ -6,9 +6,9 @@ const Container: FC<IContainer> = (props) => {
     const { children, } = props
 
     return (
-        <div className="container">
+        <main className="container">
             {children}
-        </div>
+        </main>
     )
 }
 

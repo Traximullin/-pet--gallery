@@ -1,26 +1,13 @@
 import { type FC } from "react"
-import Card from "../Card"
 import "./index.scss"
+import { type IList } from "./interface"
 
-const List: FC = () => {
+const List: FC<IList> = (props) => {
+    const { children, } = props
+
     return (
         <section className="list">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {children}
         </section>
     )
 }
