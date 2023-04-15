@@ -21,10 +21,12 @@ const useInfiniteScroll = (): {
             rootMargin: "0px",
             threshold: 1.0,
         }
-
         const observer = new IntersectionObserver(handleObserver, option)
 
-        if (loadMoreRef.current) observer.observe(loadMoreRef?.current)
+        if (loadMoreRef.current) {
+            console.log("resss")
+            observer.observe(loadMoreRef?.current)
+        }
     }, [handleObserver])
 
     return {

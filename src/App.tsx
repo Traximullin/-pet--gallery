@@ -1,18 +1,15 @@
 import { type FC } from "react"
-import { Container, Header, List } from "./components"
-import useInfiniteScroll from "./hooks/useInfiniteScroll"
+import { Container, Header } from "./components"
+import PictureList from "./dataComponents/PictureList"
 
 const App: FC = () => {
-    const { loadMoreRef, page, } = useInfiniteScroll()
 
     return (
         <>
-            <div id="scrollArea"></div>
             <Header />
             <Container>
-                <List/>
+                <PictureList />
             </Container>
-            <div ref={loadMoreRef}>SSS</div>
         </>
     )
 }
