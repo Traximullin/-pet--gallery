@@ -10,10 +10,9 @@ export const fetchPicture = createAsyncThunk(
             if (!response.ok) {
                 throw new Error("Server Error!")
             }
+            const data = await response.json() as PictureReponse
 
-            return (
-                await response.json() as PictureReponse
-            )
+            return data.map(elem => ({ ...elem, like: false, }))
         } catch (error) {
             return rejectWithValue(error)
         }

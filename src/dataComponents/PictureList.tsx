@@ -2,6 +2,7 @@ import { type FC, useEffect } from "react"
 import { Card, List } from "../components"
 import useInfiniteScroll from "../hooks/useInfiniteScroll"
 import { fetchPicture } from "../store/features/picture/picture.service"
+import { toggleLike } from "../store/features/picture/pictureSlice"
 import { useAppDispatch, useAppSelector } from "../store/hooks"
 
 const PictureList: FC = () => {
@@ -11,17 +12,22 @@ const PictureList: FC = () => {
 
     const { data: pictures, isLoading, isError, } = useAppSelector(state => state.picture)
 
+    const handleToggleLike = (id: number): void => {
+        dispatch(toggleLike(id))
+    }
+
     useEffect(() => {
         void dispatch(fetchPicture(page))
     }, [dispatch, page])
 
     return (
         <>
-            {page} {String(isLoading)}
             <List>
                 {
                     pictures.map(picture => (
                         <Card
+                            onClick={() => { handleToggleLike(picture.id) }}
+                            like={picture.like}
                             key={picture.id}
                             src={picture.url}
                             alt={picture.title}

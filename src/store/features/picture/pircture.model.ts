@@ -5,4 +5,5 @@ export interface PictureModel {
     id: number
     url: string
     title: string
+    like: boolean
 }
