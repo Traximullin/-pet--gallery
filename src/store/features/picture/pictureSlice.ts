@@ -28,6 +28,10 @@ export const pictureSlice = createSlice({
             state.isLoading = false
             state.data = action.payload
         })
+        builder.addCase(fetchPicture.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = "An error has occurred"
+        })
     },
 })
 
