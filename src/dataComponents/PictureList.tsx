@@ -22,6 +22,7 @@ const PictureList: FC = () => {
 
     return (
         <>
+            {isError && <p>{isError}</p>}
             <List>
                 {
                     pictures.map(picture => (
@@ -36,9 +37,7 @@ const PictureList: FC = () => {
                 }
             </List>
             {isLoading && <p>Loading...</p>}
-            {
-                <div ref={loadMoreRef} style={{ background: "red", height: "10px", }}/>
-            }
+            <div ref={loadMoreRef} />
         </>
     )
 }
